@@ -9,7 +9,7 @@ public class SampleWithNormalDependencyClass {
     }
 
     public String resultFromFreshCreatedDependency(NormalDependency normalDependency) {
-        return "Id is " + normalDependency.generateSomeId();
+        return "Id from parameter dependency is " + normalDependency.generateSomeId();
     }
 
     public String resultFromInjectedDependency() {

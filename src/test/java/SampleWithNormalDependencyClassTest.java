@@ -32,7 +32,7 @@ public class SampleWithNormalDependencyClassTest {
 
         verify(normalDependency).generateSomeId();
         verify(normalDependency, times(1)).generateSomeId();
-        assertEquals("Id is preFakedId", result);
+        assertEquals("Id from parameter dependency is preFakedId", result);
     }
 
     @Test
@@ -53,6 +53,6 @@ public class SampleWithNormalDependencyClassTest {
 
         String result = sampleWithNormalDependencyClass.resultFromFreshCreatedDependency();
 
-        assertEquals("Id is preFakedId", result);
+        assertEquals("Id from parameter dependency is preFakedId", result);
     }
 }
