@@ -7,7 +7,7 @@ public class SampleWithNormalDependencyClass {
 
     }
 
-    public String generateSomeResult(NormalDependency normalDependency) {
+    public String resultFromParameterDependency(NormalDependency normalDependency) {
         return "Id is " + normalDependency.generateSomeId();
     }
 

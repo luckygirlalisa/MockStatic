@@ -27,7 +27,7 @@ public class SampleWithNormalDependencyClassTest {
     public void shouldMockDependencyBehaviourOut() throws Exception {
         when(normalDependency.generateSomeId()).thenReturn("preFakedId");
 
-        String result = sampleWithNormalDependencyClass.generateSomeResult(normalDependency);
+        String result = sampleWithNormalDependencyClass.resultFromParameterDependency(normalDependency);
 
         verify(normalDependency).generateSomeId();
         verify(normalDependency, times(1)).generateSomeId();
@@ -43,6 +43,5 @@ public class SampleWithNormalDependencyClassTest {
         verify(anotherNormalDependency).generateSomeId();
         verify(anotherNormalDependency, times(1)).generateSomeId();
         assertEquals("Id from injected dependency is preFakedId", result);
-
     }
 }
