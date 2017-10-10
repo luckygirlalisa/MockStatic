@@ -1,3 +1,5 @@
+package dependency;
+
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class StaticDependency {

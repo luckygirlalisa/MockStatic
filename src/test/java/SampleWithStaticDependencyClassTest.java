@@ -1,3 +1,4 @@
+import dependency.StaticDependency;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,20 +11,20 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(StaticDependency.class)
-public class SampleClassTest {
+public class SampleWithStaticDependencyClassTest {
 
-    private SampleClass sampleClass;
+    private SampleWithStaticDependencyClass sampleWithStaticDependencyClass;
 
     @Before
     public void setUp() {
-        sampleClass = new SampleClass();
+        sampleWithStaticDependencyClass = new SampleWithStaticDependencyClass();
     }
 
     @Test
     public void shouldVerifyStaticMethodIsCalledWithCorrectParameter() {
         PowerMockito.mockStatic(StaticDependency.class);
 
-        sampleClass.doSomethingWithStaticDependency("test");
+        sampleWithStaticDependencyClass.doSomethingWithStaticDependency("test");
 
         PowerMockito.verifyStatic(StaticDependency.class);
         StaticDependency.staticMethod("test");
@@ -33,19 +34,18 @@ public class SampleClassTest {
     public void shouldVerifyNumbersOfCalls() throws Exception {
         PowerMockito.mockStatic(StaticDependency.class);
 
-        sampleClass.doSomethingWithStaticDependency("test");
+        sampleWithStaticDependencyClass.doSomethingWithStaticDependency("test");
 
         PowerMockito.verifyStatic(StaticDependency.class, Mockito.times(1));
         StaticDependency.staticMethod("test");
     }
 
-
     @Test
-    public void shouldGetCorrectOutputFromStaticMethod() throws Exception {
+    public void shouldGetPreDefinedOutputFromStaticMethod() throws Exception {
         PowerMockito.mockStatic(StaticDependency.class);
         Mockito.when(StaticDependency.generateSomeId()).thenReturn("preFakedId");
 
-        String result = sampleClass.generateSomethingFromStaticDependency();
+        String result = sampleWithStaticDependencyClass.generateSomethingFromStaticDependency();
 
         assertEquals("Id is preFakedId", result);
     }
