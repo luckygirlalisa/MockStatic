@@ -7,13 +7,13 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(StaticDependency.class)
-public class StaticClassTest {
+public class SampleClassTest {
     @Test
     public void shouldVerifyStaticMethodIsCalledWithCorrectParameter() {
         PowerMockito.mockStatic(StaticDependency.class);
 
         SampleClass sampleClass = new SampleClass();
-        sampleClass.doSomething("test");
+        sampleClass.doSomethingWithStaticDependency("test");
 
         PowerMockito.verifyStatic(StaticDependency.class);
         StaticDependency.staticMethod("test");
@@ -24,7 +24,7 @@ public class StaticClassTest {
         PowerMockito.mockStatic(StaticDependency.class);
 
         SampleClass sampleClass = new SampleClass();
-        sampleClass.doSomething("test");
+        sampleClass.doSomethingWithStaticDependency("test");
 
 
         PowerMockito.verifyStatic(StaticDependency.class, Mockito.times(1));

@@ -1,5 +1,5 @@
 public class SampleClass {
-    public void doSomething(String inputString) {
+    public void doSomethingWithStaticDependency(String inputString) {
         StaticDependency.staticMethod(inputString);
     }
 }
