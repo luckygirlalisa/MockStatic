@@ -8,7 +8,7 @@ public class SampleWithNormalDependencyClass {
         this.anotherNormalDependency = anotherNormalDependency;
     }
 
-    public String resultFromParameterDependency(NormalDependency normalDependency) {
+    public String resultFromFreshCreatedDependency(NormalDependency normalDependency) {
         return "Id is " + normalDependency.generateSomeId();
     }
 
@@ -17,4 +17,9 @@ public class SampleWithNormalDependencyClass {
     }
 
 
+    public String resultFromFreshCreatedDependency() {
+        NormalDependency normalDependency = new NormalDependency();
+
+        return "Id is " + normalDependency.generateSomeId();
+    }
 }

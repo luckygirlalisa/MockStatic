@@ -1,6 +1,7 @@
 import dependency.AnotherNormalDependency;
 import dependency.NormalDependency;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 
@@ -27,7 +28,7 @@ public class SampleWithNormalDependencyClassTest {
     public void shouldMockDependencyBehaviourOut() throws Exception {
         when(normalDependency.generateSomeId()).thenReturn("preFakedId");
 
-        String result = sampleWithNormalDependencyClass.resultFromParameterDependency(normalDependency);
+        String result = sampleWithNormalDependencyClass.resultFromFreshCreatedDependency(normalDependency);
 
         verify(normalDependency).generateSomeId();
         verify(normalDependency, times(1)).generateSomeId();
@@ -43,5 +44,15 @@ public class SampleWithNormalDependencyClassTest {
         verify(anotherNormalDependency).generateSomeId();
         verify(anotherNormalDependency, times(1)).generateSomeId();
         assertEquals("Id from injected dependency is preFakedId", result);
+    }
+
+    @Test
+    @Ignore("Should not pass since created instance couldn't be mocked.")
+    public void shouldNotBeAbleToMockCreatedInstanceInMethodToBeTested() throws Exception {
+        when(normalDependency.generateSomeId()).thenReturn("preFakedId");
+
+        String result = sampleWithNormalDependencyClass.resultFromFreshCreatedDependency();
+
+        assertEquals("Id is preFakedId", result);
     }
 }
