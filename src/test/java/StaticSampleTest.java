@@ -11,20 +11,20 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest(StaticDependency.class)
-public class SampleWithStaticDependencyClassTest {
+public class StaticSampleTest {
 
-    private SampleWithStaticDependencyClass sampleWithStaticDependencyClass;
+    private StaticSample staticSample;
 
     @Before
     public void setUp() {
-        sampleWithStaticDependencyClass = new SampleWithStaticDependencyClass();
+        staticSample = new StaticSample();
     }
 
     @Test
     public void shouldVerifyStaticMethodIsCalledWithCorrectParameter() {
         PowerMockito.mockStatic(StaticDependency.class);
 
-        sampleWithStaticDependencyClass.doSomethingWithStaticDependency("test");
+        staticSample.doSomethingWithStaticDependency("test");
 
         PowerMockito.verifyStatic(StaticDependency.class);
         StaticDependency.staticMethod("test");
@@ -34,7 +34,7 @@ public class SampleWithStaticDependencyClassTest {
     public void shouldVerifyNumbersOfCalls() throws Exception {
         PowerMockito.mockStatic(StaticDependency.class);
 
-        sampleWithStaticDependencyClass.doSomethingWithStaticDependency("test");
+        staticSample.doSomethingWithStaticDependency("test");
 
         PowerMockito.verifyStatic(StaticDependency.class, Mockito.times(1));
         StaticDependency.staticMethod("test");
@@ -45,7 +45,7 @@ public class SampleWithStaticDependencyClassTest {
         PowerMockito.mockStatic(StaticDependency.class);
         Mockito.when(StaticDependency.generateSomeId()).thenReturn("preFakedId");
 
-        String result = sampleWithStaticDependencyClass.generateSomethingFromStaticDependency();
+        String result = staticSample.generateSomethingFromStaticDependency();
 
         assertEquals("Id is preFakedId", result);
     }

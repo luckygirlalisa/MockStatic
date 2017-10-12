@@ -1,6 +1,6 @@
 import dependency.StaticDependency;
 
-public class SampleWithStaticDependencyClass {
+public class StaticSample {
     public void doSomethingWithStaticDependency(String inputString) {
         StaticDependency.staticMethod(inputString);
     }

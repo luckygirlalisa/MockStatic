@@ -1,10 +1,10 @@
 import dependency.AnotherNormalDependency;
 import dependency.NormalDependency;
 
-public class SampleWithNormalDependencyClass {
+public class NormalSample {
     private AnotherNormalDependency anotherNormalDependency;
 
-    public SampleWithNormalDependencyClass(AnotherNormalDependency anotherNormalDependency) {
+    public NormalSample(AnotherNormalDependency anotherNormalDependency) {
         this.anotherNormalDependency = anotherNormalDependency;
     }
 

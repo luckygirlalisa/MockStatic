@@ -7,8 +7,7 @@ public class StaticDependency {
         throw new NotImplementedException();
     }
 
-
     public static String generateSomeId() {
-        return null;
+        throw new NotImplementedException();
     }
 }
