@@ -5,6 +5,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.mockito.Mock;
 
+import java.lang.reflect.Field;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -54,5 +56,17 @@ public class NormalSampleTest {
         String result = normalSample.resultFromFreshCreatedDependency();
 
         assertEquals("Id from parameter dependency is preFakedId", result);
+    }
+
+    @Test
+    public void shouldBeAbleToSetPropertyInDependencyWithoutCallingSetMethod() throws Exception {
+        NormalDependency normalDependency = new NormalDependency();
+        Class<? extends NormalDependency> normalDependencyClass = normalDependency.getClass();
+
+        Field oneProperty = normalDependencyClass.getDeclaredField("oneProperty");
+        oneProperty.setAccessible(true);
+        oneProperty.set(normalDependency, "Expected Value");
+
+        assertEquals("Expected Value", normalDependency.getOneProperty());
     }
 }

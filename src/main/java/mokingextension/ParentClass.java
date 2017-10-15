@@ -7,6 +7,7 @@ public class ParentClass {
         throw new NotImplementedException();
     }
 
+    //There's no way to avoid calling static block in parent class when initialize child class instance.
 //    static {
 //        if (true) {
 //            throw new NotImplementedException();
