@@ -24,6 +24,30 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>test</id>
+            <build>
+                <!--<testResources>/src/test/java/mokingextension</testResources>-->
+                <plugins>
 
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.12.4</version>
+                        <configuration>
+                            <!--<includes>-->
+                                <!--<include>**/NormalSampleTest.class</include>-->
+                            <!--</includes>-->
+                            <excludes>
+                                <exclude>**/mokingextension/*.class</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 
 </project>
