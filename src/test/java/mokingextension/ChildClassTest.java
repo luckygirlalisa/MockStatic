@@ -1,5 +1,6 @@
 package mokingextension;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.powermock.api.mockito.PowerMockito;
@@ -13,6 +14,7 @@ import static org.junit.Assert.*;
 public class ChildClassTest {
 
     @Test
+    @Ignore
     public void shouldMockParentMethod() throws Exception {
         PowerMockito.suppress(PowerMockito.method(ParentClass.class));
 
