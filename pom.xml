@@ -58,7 +58,7 @@
                         <version>0.7.9</version>
                         <executions>
                             <execution>
-                                <id>pre-unit-test</id>
+                                <id>pre-integration-test</id>
                                 <goals>
                                     <goal>prepare-agent</goal>
                                 </goals>
