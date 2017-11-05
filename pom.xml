@@ -29,6 +29,15 @@
             <!--<version>0.7.9</version>-->
         <!--</dependency>-->
 
+        <!-- https://mvnrepository.com/artifact/org.jmockit/jmockit -->
+        <dependency>
+            <groupId>org.jmockit</groupId>
+            <artifactId>jmockit</artifactId>
+            <version>1.36</version>
+            <scope>test</scope>
+        </dependency>
+
+
     </dependencies>
 
     <profiles>
