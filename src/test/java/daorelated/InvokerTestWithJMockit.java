@@ -4,7 +4,9 @@ import mockit.Mock;
 import mockit.MockUp;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 
 public class InvokerTestWithJMockit {
@@ -26,10 +28,12 @@ public class InvokerTestWithJMockit {
     public void shouldNotCallMethodInDAOImpl() throws Exception {
         new MockedFrmPersistenceEntityManagerAccessor();
         DaoImpl dao = mock(DaoImpl.class);
+        when(dao.doSomething()).thenReturn("mocked result");
 
         invoker = new Invoker(dao);
+        String result = invoker.invokeDao();
 
-        invoker.invokeDao();
+        assertEquals("mocked result", result);
     }
 }
 
