@@ -1,9 +1,9 @@
 package daorelated;
 
 public class Invoker {
-    DaoImpl dao;
+    DaoInterface dao;
 
-    public Invoker(DaoImpl dao) {
+    public Invoker(DaoInterface dao) {
         this.dao = dao;
     }
 
