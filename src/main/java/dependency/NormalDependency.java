@@ -9,6 +9,10 @@ public class NormalDependency {
         throw new NotImplementedException();
     }
 
+    public String beRealCalled() {
+        return "Not mocked";
+    }
+
     public String getOneProperty() {
         return oneProperty;
     }

@@ -14,7 +14,9 @@ public class NormalSample {
 
     public String resultFromFreshCreatedDependency(NormalDependency normalDependency) {
         String beCalled = toBeCalled();
-        return "Id from parameter dependency is " + normalDependency.generateSomeId() + " " + beCalled;
+        String notMockedDependency = normalDependency.beRealCalled();
+        return "Id from parameter dependency is " + normalDependency.generateSomeId() + " " + beCalled
+                + " " + notMockedDependency;
     }
 
     public String resultFromInjectedDependency() {

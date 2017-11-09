@@ -32,7 +32,6 @@ public class NormalSampleTestWithJmockit {
             private String toBeCalled() {
                 return "haha";
             }
-
         };
 
         normalDependency = new NormalDependency();
@@ -40,6 +39,6 @@ public class NormalSampleTestWithJmockit {
 
         String result = normalSample.resultFromFreshCreatedDependency(normalDependency);
 
-        assertEquals("Id from parameter dependency is preFakedId haha", result);
+        assertEquals("Id from parameter dependency is preFakedId haha Not mocked", result);
     }
 }
