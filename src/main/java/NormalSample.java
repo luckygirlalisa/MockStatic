@@ -28,7 +28,7 @@ public class NormalSample {
         return "Id is " + normalDependency.generateSomeId();
     }
 
-    public String toBeCalled() {
+    private String toBeCalled() {
         throw new NotImplementedException();
     }
 }

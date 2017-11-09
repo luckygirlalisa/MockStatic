@@ -29,7 +29,7 @@ public class NormalSampleTestWithJmockit {
 
         new MockUp<NormalSample>() {
             @Mock
-            public String toBeCalled() {
+            private String toBeCalled() {
                 return "haha";
             }
 
