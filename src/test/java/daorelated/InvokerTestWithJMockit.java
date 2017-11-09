@@ -12,23 +12,22 @@ import static org.mockito.Mockito.when;
 public class InvokerTestWithJMockit {
     Invoker invoker;
 
-
-    public static class MockedFrmPersistenceEntityManagerAccessor extends MockUp<FrmPersistenceEntityManagerAccessor>
-    {
-        @Mock
-        void $init() { }
-
-        @Mock
-        public static FrmPersistenceEntityManagerAccessor getAccessor() {
-            return null;
-        }
-    }
-
     @Test
     public void shouldNotCallMethodInDAOImpl() throws Exception {
-        new MockedFrmPersistenceEntityManagerAccessor();
-        DaoImpl dao = mock(DaoImpl.class);
-        when(dao.doSomething()).thenReturn("mocked result");
+        new MockUp<DaoImpl>() {
+            @Mock
+            void $clinit() {
+
+            }
+
+            @Mock
+            public String doSomething() {
+                return "mocked result";
+            }
+
+        };
+
+        DaoImpl dao = new DaoImpl();
 
         invoker = new Invoker(dao);
         String result = invoker.invokeDao();
